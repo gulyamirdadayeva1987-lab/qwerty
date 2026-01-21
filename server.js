@@ -39,9 +39,10 @@ app.post('/api/sendOrder', async (req, res) => {
         }
 
         const lines = [
-            "Yangi buyurtma - INKORE",
-            `Vaqt: ${new Date(created_at || Date.now()).toLocaleString()}`,
-            ""
+          "🛒 Yangi buyurtma - INKORE",
+          `⏰ Vaqt: ${new Date(created_at || Date.now()).toLocaleString()}`,
+          `📞 Telefon: ${phone || "Kiritilmagan"}`,
+          "",
         ];
         items.forEach(it => {
             lines.push(`${it.title} — ${it.qty} x ${it.price} UZS = ${Number(it.qty) * Number(it.price)} UZS`);
@@ -81,3 +82,4 @@ app.post('/api/sendOrder', async (req, res) => {
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => console.log(`API server listening on ${PORT}`));
+
