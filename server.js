@@ -28,7 +28,7 @@ app.post('/api/sendOrder', async (req, res) => {
     console.log('Env present:', { bot: !!BOT, chat: !!CHAT });
 
     try {
-        const { items, total, created_at } = req.body || {};
+        const { items, total, phone, created_at } = req.body || {};
         console.log('Incoming body:', req.body);
 
         if (!items || !Array.isArray(items) || items.length === 0) {
@@ -79,4 +79,5 @@ app.post('/api/sendOrder', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 9000;
+
 app.listen(PORT, () => console.log(`API server listening on ${PORT}`));
